@@ -41,7 +41,7 @@ jobs:
       - run: python3 script/release.py --version ${{ env.version }} --build-type ${{ matrix.build_type }} --machine ${{ matrix.machine }}
         if: ${{ github.event.inputs.skip_release != 'true' }}
         env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
+          API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   linux:
     runs-on: ubuntu-20.04
@@ -72,7 +72,7 @@ jobs:
       - run: python3 script/release.py --version ${{ env.version }} --build-type ${{ matrix.build_type }} --machine ${{ matrix.target_machine }}
         if: ${{ github.event.inputs.skip_release != 'true' }}
         env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
+          API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   android:
     if: false
@@ -100,7 +100,7 @@ jobs:
       - run: python3 script/release.py --system android --machine ${{ matrix.machine }}
         if: ${{ github.event.inputs.skip_release != 'true' }}
         env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
+          API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   windows:
     runs-on: windows-latest
@@ -134,4 +134,4 @@ jobs:
         run: python3 script/release.py --version ${{ env.version }} --build-type ${{ matrix.build_type }}
         if: ${{ github.event.inputs.skip_release != 'true' }}
         env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
+          API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
