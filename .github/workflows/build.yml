@@ -18,7 +18,7 @@ env:
 
 jobs:
   macos:
-    runs-on: macos-11
+    runs-on: macos
     strategy:
       matrix:
         machine: ["x64", "arm64"]
